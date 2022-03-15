@@ -16,6 +16,10 @@ export default function App() {
 
   const dieValue = dice.map((die) => <Die value={die} />);
 
+  function handleClick() {
+    setDice(allNewDice());
+  }
+
   return (
     <main>
       <h1>Tenzies</h1>
@@ -24,6 +28,9 @@ export default function App() {
         current value between rolls.
       </p>
       <div className="dice--container">{dieValue}</div>
+      <button className="btn" onClick={handleClick}>
+        Roll
+      </button>
     </main>
   );
 }
