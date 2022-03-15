@@ -1,7 +1,10 @@
+import { useState } from "react";
 import "./style.css";
 import Die from "./components/Die";
 
 export default function App() {
+  const [dice, setDice] = useState(allNewDice());
+
   function allNewDice() {
     const newDice = [];
 
@@ -11,6 +14,8 @@ export default function App() {
     return newDice;
   }
 
+  const dieValue = dice.map((die) => <Die value={die} />);
+
   return (
     <main>
       <h1>Tenzies</h1>
@@ -18,18 +23,7 @@ export default function App() {
         Roll until all dice are the same. Click each die to freeze it at its
         current value between rolls.
       </p>
-      <div className="dice--container">
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-      </div>
+      <div className="dice--container">{dieValue}</div>
     </main>
   );
 }
