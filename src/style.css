@@ -28,7 +28,7 @@ main {
   font-size: 1.063rem;
   color: #4a4e74;
   text-align: center;
-  width: 30%;
+  width: 40%;
   margin: 0 auto;
 }
 
@@ -56,10 +56,19 @@ main {
   color: #fff;
   font-size: 1.2rem;
   font-weight: bold;
-  width: 95px;
-  height: 40px;
+  font-family: "Karla", sans-serif;
+  width: 100px;
+  height: 50px;
   border-radius: 10px;
   border: none;
   margin: 10px 0 30px;
-  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
