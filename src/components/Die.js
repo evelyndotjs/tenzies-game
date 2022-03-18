@@ -3,7 +3,7 @@ export default function Die(props) {
     backgroundColor: props.isHeld ? "#59E391" : "#FFF",
   };
   return (
-    <div className="die--face" style={styles}>
+    <div className="die--face" style={styles} onClick={props.holdDice}>
       <h2 className="die--boxes">{props.value}</h2>
     </div>
   );
