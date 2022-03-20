@@ -46,6 +46,15 @@ export default function App() {
     );
   }
 
+  function newGame() {
+    if (!tenzies) {
+      return rollDice();
+    } else {
+      setDice(allNewDice());
+      setTenzies(false);
+    }
+  }
+
   useEffect(() => {
     const allHeld = dice.every((die) => die.isHeld);
     const firstValue = dice[0].value;
@@ -74,7 +83,7 @@ export default function App() {
         current value between rolls.
       </p>
       <div className="dice--container">{diceElements}</div>
-      <button className="btn" onClick={rollDice}>
+      <button className="btn" onClick={newGame}>
         {tenzies ? "Restart" : "Roll"}
       </button>
     </main>
