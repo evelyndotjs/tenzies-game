@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import "./style.css";
 import Die from "./components/Die";
-import Record from "./components/Record";
 import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
 
 export default function App() {
   const [dice, setDice] = useState(allNewDice());
   const [tenzies, setTenzies] = useState(false);
-  const [record, setRecord] = useState(0);
 
   function generateNewDie() {
     return {
@@ -48,11 +46,7 @@ export default function App() {
     );
   }
 
-  let clicked;
-
   function newGame(event) {
-    clicked = event.type;
-
     if (!tenzies) {
       return rollDice();
     } else {
@@ -60,34 +54,6 @@ export default function App() {
       setTenzies(false);
     }
   }
-
-  let startTime;
-
-  function getSeconds() {
-    const date = new Date();
-    const miliseconds = date.getMilliseconds();
-    return miliseconds / 1000;
-  }
-
-  function timerStart() {
-    startTime = getSeconds();
-  }
-
-  function timerEnd() {
-    const endTime = getSeconds();
-    const timeElapse = endTime - startTime;
-    return timeElapse;
-  }
-
-  useEffect(() => {
-    if (clicked === "click" || holdDice()) {
-      timerStart();
-    }
-    if (tenzies) {
-      setRecord(timerEnd());
-    }
-  }, [tenzies]);
-  //figure out whats wrong with the dependency error
 
   useEffect(() => {
     const allHeld = dice.every((die) => die.isHeld);
@@ -120,7 +86,6 @@ export default function App() {
       <button className="btn" onClick={newGame}>
         {tenzies ? "Restart" : "Roll"}
       </button>
-      <Record record={record} />
     </main>
   );
 }
