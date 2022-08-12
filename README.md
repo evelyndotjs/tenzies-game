@@ -1,4 +1,1 @@
-[Demo](https://bamboo-stand-crowdfund.herokuapp.com/ "Bamboo Stand Crowdfund")
-
-- Built on React
-- Styled with Material UI and styled components
+[Demo](https://evelyndotjs-tenzies-game.herokuapp.com/ "Tenzies Dice Game")
